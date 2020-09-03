@@ -1,0 +1,29 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<title>Page Title</title>
+	<meta name="viewport" content="width=device-width , initial-scale-1">
+	<link rel="stylesheet" type="text/css" media="screen" href="main.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'form.css' %}">
+	<script src="main.js"></script>
+</head>
+<body style="background-color:hotpink">
+	<div class="form">
+		<form action="login" method="post">
+			{% csrf_token %}
+			<div style="text-align:center">Login To Continue</div>
+			<input type="text" name="username" placeholder="username"><br>
+			<input type="password" name="password" placeholder="password"><br>
+			<div style="text-align:center"><input type="submit"></div>
+		</form>
+	</div>
+	<div style="text-align:center">
+		{% for message in messages %}
+		<h3>{{message}}</h3>
+		{% endfor %}
+	</div>
+</body>
+</html>
